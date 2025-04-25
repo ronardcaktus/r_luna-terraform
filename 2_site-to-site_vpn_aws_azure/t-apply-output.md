@@ -43,3 +43,56 @@
 
     Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
 ```
+
+### First tests
+```sh
+    Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+    Outputs:
+
+    aws_vm_private_ip = "192.168.1.188"
+    aws_vm_public_ip = "98.84.56.153"
+    azure_vm_private_ip = "10.0.1.4"
+    azure_vm_public_ip = "52.226.113.68"
+
+    # From AWS
+     > ssh ubuntu@98.84.56.153 ping 10.0.1.4 -c 4                    
+    PING 10.0.1.4 (10.0.1.4) 56(84) bytes of data.
+    64 bytes from 10.0.1.4: icmp_seq=1 ttl=64 time=5.59 ms
+    64 bytes from 10.0.1.4: icmp_seq=2 ttl=64 time=5.80 ms
+    64 bytes from 10.0.1.4: icmp_seq=3 ttl=64 time=5.20 ms
+    64 bytes from 10.0.1.4: icmp_seq=4 ttl=64 time=5.78 ms
+
+    --- 10.0.1.4 ping statistics ---
+    4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+    rtt min/avg/max/mdev = 5.196/5.590/5.797/0.241 ms
+
+    # From inside the VM
+
+    ubuntu@ip-192-168-1-188:~$ ping -c 4 10.0.1.4
+    PING 10.0.1.4 (10.0.1.4) 56(84) bytes of data.
+    64 bytes from 10.0.1.4: icmp_seq=1 ttl=64 time=5.29 ms
+    64 bytes from 10.0.1.4: icmp_seq=2 ttl=64 time=6.46 ms
+    64 bytes from 10.0.1.4: icmp_seq=3 ttl=64 time=6.26 ms
+    64 bytes from 10.0.1.4: icmp_seq=4 ttl=64 time=5.22 ms
+    
+    ubuntu@ip-192-168-1-188:~$ nc -vz 10.0.1.4 22
+    Connection to 10.0.1.4 22 port [tcp/ssh] succeeded!
+```
+
+
+### Deleted Azure VMs and tested again
+
+
+```sh
+    > terraform apply 
+
+    Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+    Outputs:
+
+    aws_vm_private_ip = "192.168.1.188"
+    aws_vm_public_ip = "98.84.56.153"
+    azure_vm_private_ip = "10.0.1.4"
+    azure_vm_public_ip = "52.226.113.68"
+```

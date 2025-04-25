@@ -6,3 +6,6 @@
 */.terraform.lock.hcl
 */terraform.tfstate
 */terraform.tfstate.backup
+
+personal-info.md
+.vscode/

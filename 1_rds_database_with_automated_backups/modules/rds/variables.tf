@@ -97,19 +97,19 @@ variable "security_group_ids" {
 ########################
 
 variable "backup_retention_period" {
-  type = number
+  type        = number
   description = "The ammount of days to keep a DB backup."
 
   validation {
-    condition = var.backup_retention_period >= 0 && var.backup_retention_period <= 35
+    condition     = var.backup_retention_period >= 0 && var.backup_retention_period <= 35
     error_message = "Retention period must be between 0 and 35 days."
   }
 }
 
 variable "backup_window" {
-  type = string
-  description = "The daily time range (in UTC) during which automated backups are created. Format: '09:45-10:20'." 
-  
+  type        = string
+  description = "The daily time range (in UTC) during which automated backups are created. Format: '09:45-10:20'."
+
   validation {
     condition     = can(regex("^([01][0-9]|2[0-3]):[0-5][0-9]-([01][0-9]|2[0-3]):[0-5][0-9]$", var.backup_window))
     error_message = "backup_window must be in the format HH:MM-HH:MM using 24-hour time (e.g., 09:46-10:16)."
@@ -117,7 +117,7 @@ variable "backup_window" {
 }
 
 variable "maintenance_window" {
-  type = string
+  type        = string
   description = "The window to perform maintenance in. Syntax: 'ddd:hh24:mi-ddd:hh24:mi'. Eg: 'Mon:00:00-Mon:03:00'"
 
   validation {

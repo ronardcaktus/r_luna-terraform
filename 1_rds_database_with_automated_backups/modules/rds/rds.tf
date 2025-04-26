@@ -43,9 +43,9 @@ resource "aws_db_instance" "this" {
   db_subnet_group_name = aws_db_subnet_group.this.name
   publicly_accessible  = false
   skip_final_snapshot  = true
-  
+
   # Automated backups
   backup_retention_period = var.backup_retention_period
-  backup_window = var.backup_window
-  maintenance_window = var.maintenance_window
+  backup_window           = var.backup_window
+  maintenance_window      = var.maintenance_window
 }

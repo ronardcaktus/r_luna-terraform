@@ -11,7 +11,7 @@ module "database" {
     username = "dbadmin"
     password = "Test_Pass-123?"
   }
-  
+
   # Automated backups
   backup_retention_period = 3 # number of days
   backup_window           = "08:05-08:50"

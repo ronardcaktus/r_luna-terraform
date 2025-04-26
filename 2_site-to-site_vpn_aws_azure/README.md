@@ -129,7 +129,7 @@ Pinging a private VM on Azure using the public IP on AWS
     4 packets transmitted, 4 received, 0% packet loss, time 3005ms
     rtt min/avg/max/mdev = 5.196/5.590/5.797/0.241 ms
 
-    # From inside the VM
+    # Pinging Azure VM (From AWS VM)
 
     ubuntu@ip-192-168-1-188:~$ ping -c 4 10.0.1.4
     PING 10.0.1.4 (10.0.1.4) 56(84) bytes of data.
@@ -138,6 +138,7 @@ Pinging a private VM on Azure using the public IP on AWS
     64 bytes from 10.0.1.4: icmp_seq=3 ttl=64 time=6.26 ms
     64 bytes from 10.0.1.4: icmp_seq=4 ttl=64 time=5.22 ms
     
+    # Checks if port 22 (SSH) on IP address 10.0.1.4 is open and reachable (From AWS VM)
     ubuntu@ip-192-168-1-188:~$ nc -vz 10.0.1.4 22
     Connection to 10.0.1.4 22 port [tcp/ssh] succeeded!
 ```
@@ -145,10 +146,11 @@ Pinging a private VM on Azure using the public IP on AWS
 ## How to: Run this on my machine/cloud?
 
 **Requirements**
+
 These requirements assume you are successfully connected to your AWS and Azure accounts.
 
-Terraform ~> 1.7
-Public key
+- erraform ~> 1.7
+- Public key
 
 
 ## Key things I learned building this project

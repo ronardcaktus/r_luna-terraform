@@ -149,7 +149,7 @@ Pinging a private VM on Azure using the public IP on AWS
 
 These requirements assume you are successfully connected to your AWS and Azure accounts.
 
-- erraform ~> 1.7
+- Terraform ~> 1.7
 - Public key
 
 

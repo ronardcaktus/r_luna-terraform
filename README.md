@@ -8,6 +8,7 @@ This repository will house a series of infrastructure projects built with `Terra
 special focus on the `Amazon Web Services (AWS)` cloud platform. Each project will have its own
 README, along with comments to help explain the the created resources. 
 
-**Project breakdown**:
+**Projects**:
 1. Postgres RDS Database instance with automated backups _(Storage & Data)_
-2. ???
+2. Site-to-site (S2S) VPN AWS <-> Azure _(Networking)_
+3. ???

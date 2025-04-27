@@ -11,4 +11,5 @@ README, along with comments to help explain the the created resources.
 **Projects**:
 1. Postgres RDS Database instance with automated backups _(Storage & Data)_
 2. Site-to-site (S2S) VPN AWS <-> Azure _(Networking)_
-3. ???
+3. Multi-Environment Deployment (Dev, Staging, Prod)
+4. More to come... 

@@ -1,10 +1,11 @@
-# Multi-Environment Deployment (Dev, Staging, Prod)
+# Multi-Environment Deployment: Development, Staging, and Production
 
 ## What is this project?
 
 This project deploys three sets of AWS resources to simulate managing three distinct 
-environments—a common requirement in production applications. We’ll use Terraform 
-workspaces to isolate state for each environment.
+environments—a common standard in production applications. The project uses Terraform 
+[workspaces](https://developer.hashicorp.com/terraform/language/state/workspaces) to 
+isolate state for each environment.
 
 ## Environment breakdown
 
@@ -21,12 +22,12 @@ To ensure high code quality, all changes must pass a peer-review (PR) before bei
 deployed to staging. A dedicated staging environment gives QA teams a safe space to 
 test changes and provides confidence that they’ll work as expected in production.
 
-Terraform workspaces let us break our infrastructure into isolated state units. We’ll create
- three workspaces—development, staging, and production—while using the same codebase:
+Terraform workspaces let us break our infrastructure into isolated state units. The 3 
+workspaces—`development`, `staging`, and `production` use the same codebase & resources:
 
-* **Development**: 1 S3 bucket
-* **Staging**: 2 S3 buckets
-* **Production**: 3 S3 buckets
+* **development**: 1 S3 bucket
+* **staging**: 2 S3 buckets
+* **production**: 3 S3 buckets
 
 ## Key benefits
 
@@ -70,7 +71,7 @@ They modify the name of the resources (adding clarity) and the number of existin
 
 ![separation_of_state](screenshots/separation_of_state.png)
 
-#### Dev, staging, and production deployments
+#### Development, staging, and production deployments & matching workspaces
 
 ![separation_of_state](screenshots/workspaces.png)
 
@@ -99,5 +100,5 @@ There is a useful command that can help us avoid mistakes while simplifying infr
 	terraform apply -var-file=$(terraform workspace show).tfvars
 ```
 
-`terraform workspace show` - lists the name of the current workspace, e.g. `production`. That configuration 
-file will always be applied if we named our env var `production.tfvars` while on that workspace. 
+`terraform workspace show` - lists the name of the current workspace, e.g. `production`. While on that workspace,
+that configuration file will always be applied if we named our env var `production.tfvars`. 

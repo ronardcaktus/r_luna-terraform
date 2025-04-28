@@ -88,8 +88,16 @@ They modify the name of the resources (adding clarity) and the number of existin
 
 ```sh
 	terraform init # initialize project
-	terraform apply # Create 
+	terraform apply # Create infrastructure
 ```
 
+## What I learned while building this project
 
+There is a useful command that can help us avoid mistakes while simplifying infrastructure creation/update. 
 
+```sh
+	terraform apply -var-file=$(terraform workspace show).tfvars
+```
+
+`terraform workspace show` - lists the name of the current workspace, e.g. `production`. That configuration 
+file will always be applied if we named our env var `production.tfvars` while on that workspace. 
